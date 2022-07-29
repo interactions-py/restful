@@ -1,16 +1,13 @@
 from os import getenv
 
 from dotenv import load_dotenv
+
 import interactions
 from interactions.ext.api import APIClient
 
 load_dotenv()
 
-bot = interactions.Client(
-    getenv("TOKEN"),
-    disable_sync=True,
-    intents=interactions.Intents.ALL
-)
+bot = interactions.Client(getenv("TOKEN"), disable_sync=True, intents=interactions.Intents.ALL)
 api = APIClient(bot)
 bot.load("exts.cog")
 

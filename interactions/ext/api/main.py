@@ -3,13 +3,16 @@ from functools import wraps
 
 from fastapi import FastAPI
 from uvicorn import Config, Server
+
 import interactions
 
 __all__ = ["APIClient", "route"]
 
 
 class APIClient:
-    def __init__(self, client: interactions.Client, host: str = "127.0.0.1", port: int = 32512, **kwargs):
+    def __init__(
+        self, client: interactions.Client, host: str = "127.0.0.1", port: int = 32512, **kwargs
+    ):
         self.client = client
         self.loop = self.client._loop
         self.host = host
@@ -57,9 +60,10 @@ class APIClient:
             pass
 
 
-@wraps(IPCServer.route)
+@wraps(APIClient.route)
 def route(method: str, path: str, **kwargs):
     def wrapper(func):
         func.__ipc__ = (method, path, kwargs)
         return func
+
     return wrapper

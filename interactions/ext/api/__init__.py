@@ -3,13 +3,8 @@ from interactions.ext.version import Version, VersionAuthor
 
 from .main import *  # noqa
 
-
 version = Version(
-    version="0.0.1",
-    author=VersionAuthor(
-        name="Damego",
-        email="danyabatueff@gmail.com"
-    )
+    version="0.0.1", author=VersionAuthor(name="Damego", email="danyabatueff@gmail.com")
 )
 
 base = Base(

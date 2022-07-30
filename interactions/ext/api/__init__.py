@@ -1,4 +1,5 @@
 import asyncio
+from typing import Optional
 
 from interactions.ext.base import Base
 from interactions.ext.version import Version, VersionAuthor
@@ -26,7 +27,7 @@ base = Base(
 
 
 class SimpleAPI(Extension):
-    def __init__(self, client: Client, host: str = "127.0.0.1", port: int = 32512, **kwargs):
+    def __init__(self, client: Client, host: Optional[str] = "127.0.0.1", port: Optional[int] = 32512, **kwargs):
         self.client = client
         self._loop = client._loop
         self._api = APIClient(host, port, **kwargs)
@@ -77,8 +78,8 @@ class SimpleAPI(Extension):
 
 def setup(
     client: Client,
-    host: str = "127.0.0.1",
-    port: int = 32512,
+    host: Optional[str] = "127.0.0.1",
+    port: Optional[int] = 32512,
     **kwargs,
 ):
     """

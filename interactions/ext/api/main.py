@@ -39,7 +39,7 @@ def route(method: str, path: str, **kwargs):
 
 
 @wraps(APIClient.websocket)
-def websocket(path: str, name: str = None):
+def websocket(path: str, name: Optional[str] = None):
     def wrapper(func):
         func.__api_ws__ = (path, name)
         return func

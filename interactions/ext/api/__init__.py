@@ -26,7 +26,7 @@ base = Base(
 
 
 class SimpleAPI(Extension):
-    def __init__(self, client: Client, host: str = "127.0.0.1", port: 32512 = None, **kwargs):
+    def __init__(self, client: Client, host: str = "127.0.0.1", port: int = 32512, **kwargs):
         self.client = client
         self._loop = client._loop
         self._api = APIClient(host, port, **kwargs)

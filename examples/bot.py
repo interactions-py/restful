@@ -6,7 +6,6 @@ from fastapi import WebSocket, WebSocketDisconnect
 import interactions
 from interactions.ext.api import setup
 
-
 load_dotenv()
 
 bot = interactions.Client(getenv("TOKEN"), intents=interactions.Intents.ALL)
@@ -19,7 +18,7 @@ async def on_start():
 
 
 @bot.command()
-async def test(ctx):
+async def test_command(ctx):
     await ctx.send("Ok")
 
 

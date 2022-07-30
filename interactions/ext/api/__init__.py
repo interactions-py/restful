@@ -1,9 +1,9 @@
 import asyncio
-from functools import wraps
 
-from interactions import Client, Extension
 from interactions.ext.base import Base
 from interactions.ext.version import Version, VersionAuthor
+
+from interactions import Client, Extension
 
 from .main import APIClient, route
 

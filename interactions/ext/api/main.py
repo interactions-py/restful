@@ -8,9 +8,7 @@ __all__ = ["APIClient", "route", "websocket"]
 
 
 class APIClient:
-    def __init__(
-        self, host: Optional[str] = "127.0.0.1", port: Optional[int] = 32512, **kwargs
-    ):
+    def __init__(self, host: Optional[str] = "127.0.0.1", port: Optional[int] = 32512, **kwargs):
         self.host = host
         self.port = port
         self.app = FastAPI(**kwargs)

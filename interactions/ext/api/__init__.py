@@ -31,8 +31,18 @@ class SimpleAPI(Extension):
         self.client = client
         self._loop = client._loop
         self._api = APIClient(host, port, **kwargs)
+
         self.route = self._api.route
         self.websocket = self._api.websocket
+
+        self.get = self._api.app.get
+        self.post = self._api.app.post
+        self.put = self._api.app.put
+        self.delete = self._api.app.delete
+        self.options = self._api.app.options
+        self.head = self._api.app.head
+        self.patch = self._api.app.patch
+        self.trace = self._api.app.trace
 
         self.__override_client()
 

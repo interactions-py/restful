@@ -1,4 +1,4 @@
-# Simple API for interactions.py
+# FastAPI wrapper for interactions.py
 
 An Extension library to add API for your interactions.py bot by using Fast API.
 

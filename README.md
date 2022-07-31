@@ -4,7 +4,7 @@ An Extension library to add API for your interactions.py bot by using Fast API.
 
 ## Installation
 
-``pip install git+https://github.com/Damego/interactions-simple-api.git``
+``pip install git+https://github.com/Damego/interactions-fastapi.git``
 
 
 ## Examples

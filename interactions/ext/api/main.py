@@ -20,9 +20,6 @@ class APIClient:
             raise AttributeError(f"Method {method} not found!")
         return func(path, **kwargs)
 
-    def websocket(self, path: str, name: str = None):
-        return self.app.websocket(path, name)
-
     async def run(self):
         config = Config(self.app, host=self.host, port=self.port)
         server = Server(config=config)
@@ -38,7 +35,7 @@ def route(method: str, path: str, **kwargs):
     return wrapper
 
 
-@wraps(APIClient.websocket)
+@wraps(FastAPI.websocket)
 def websocket(path: str, name: Optional[str] = None):
     def wrapper(func):
         func.__api_ws__ = (path, name)

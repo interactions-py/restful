@@ -4,9 +4,10 @@ from typing import Optional
 from interactions.ext.base import Base
 from interactions.ext.version import Version, VersionAuthor
 
+from .main import APIClient, route
+
 from interactions import Client, Extension
 
-from .main import APIClient, route
 
 __all__ = ["version", "base", "SimpleAPI", "APIClient", "route", "setup"]
 
@@ -31,9 +32,9 @@ class SimpleAPI(Extension):
         self.client = client
         self._loop = client._loop
         self._api = APIClient(host, port, **kwargs)
+        self.client.api = self
 
         self.route = self._api.route
-        self.websocket = self._api.websocket
 
         self.get = self._api.app.get
         self.post = self._api.app.post
@@ -43,6 +44,7 @@ class SimpleAPI(Extension):
         self.head = self._api.app.head
         self.patch = self._api.app.patch
         self.trace = self._api.app.trace
+        self.websocket = self._api.app.websocket
 
         self.__override_client()
 

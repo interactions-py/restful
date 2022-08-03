@@ -1,6 +1,6 @@
 from codecs import open
 
-from setuptools import find_packages, setup
+from setuptools import setup
 
 # Package information
 AUTHOR = "Damego"
@@ -29,7 +29,7 @@ setup(
     long_description=README,
     long_description_content_type="text/markdown",
     url=URL,
-    packages=find_packages(),
+    packages=["interactions.ext.api"],
     python_requires=">=3.8",
     classifiers=[
         "Intended Audience :: Developers",

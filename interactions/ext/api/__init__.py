@@ -12,17 +12,19 @@ from interactions import Client, Extension
 __all__ = ["version", "base", "SimpleAPI", "APIClient", "route", "setup"]
 
 version = Version(
-    version="0.0.1", author=VersionAuthor(name="Damego", email="danyabatueff@gmail.com")
+    version="0.0.1", author=VersionAuthor(name="Damego", email="damego.dev@gmail.com")
 )
 
 base = Base(
-    name="simple_api",
+    name="interactions-fastapi",
     version=version,
-    description="REST api for your bot",
-    link="https://github.com/Damego/interactions-simple-api",
+    description="Build an API for your bot with FastAPI",
+    link="https://github.com/Damego/interactions-fastapi",
     packages=["interactions.ext.api"],
     requirements=[
         "discord-py-interactions",
+        "fastapi",
+        "uvicorn"
     ],
 )
 
@@ -95,7 +97,6 @@ def setup(
     **kwargs,
 ):
     """
-    Setup API to your bot.
-    You can also do `bot.load("interactions.ext.api")`
+    Setup an FastAPI to your bot.
     """
     return SimpleAPI(client, host, port, **kwargs)

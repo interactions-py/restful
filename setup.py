@@ -4,11 +4,11 @@ from setuptools import setup
 
 # Package information
 AUTHOR = "Damego"
-AUTHOR_EMAIL = "danyabatueff@gmail.com"
-DESCRIPTION = "REST api for your bot"
-PROJECT_NAME = "interactions-simple-api"
+AUTHOR_EMAIL = "damego.dev@gmail.com"
+DESCRIPTION = "Build an API for your bot with FastAPI"
+PROJECT_NAME = "interactions-fastapi"
 MAIN_PACKAGE_NAME = "interaction.ext.api"
-URL = "https://github.com/Damego/interactions-simple-api"
+URL = "https://github.com/Damego/interactions-fastapi"
 
 with open("README.md", "r", encoding="utf-8") as f:
     README = f.read()

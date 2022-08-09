@@ -1,5 +1,5 @@
 from interactions import Extension, extension_command
-from interactions.ext.api import route
+from interactions.ext.fastapi import route
 
 
 class Cog(Extension):

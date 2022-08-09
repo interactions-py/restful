@@ -11,12 +11,12 @@ An Extension library to add Fast API for your interactions.py bot .
 
 ```python
 import interactions
-from interactions.ext.api import setup
+from interactions.ext.fastapi import setup
 
 client = interactions.Client(...)
 api = setup(client)
 
-@api.route("GET", "/")
+@api.get("/")
 async def index():
     return {"status": "success"}
 

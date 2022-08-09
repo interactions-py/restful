@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 from fastapi import WebSocket, WebSocketDisconnect
 
 import interactions
-from interactions.ext.api import setup
+from interactions.ext.fastapi import setup
 
 load_dotenv()
 
@@ -27,7 +27,7 @@ async def index():
     return {"test": "yay"}
 
 
-@api.route("get", "/guilds/{guild_id}/members/{member_id}")
+@api.get("/guilds/{guild_id}/members/{member_id}")
 async def test(guild_id: int, member_id: int):
     for guild in bot.guilds:
         if int(guild.id) == guild_id:

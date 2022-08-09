@@ -4,7 +4,7 @@ An Extension library to add Fast API for your interactions.py bot .
 
 ## Installation
 
-``pip install git+https://github.com/Damego/interactions-fastapi.git``
+``pip install interactions-fastapi``
 
 
 ## Examples

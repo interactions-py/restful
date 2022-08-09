@@ -7,7 +7,7 @@ AUTHOR = "Damego"
 AUTHOR_EMAIL = "damego.dev@gmail.com"
 DESCRIPTION = "Build an API for your bot with FastAPI"
 PROJECT_NAME = "interactions-fastapi"
-MAIN_PACKAGE_NAME = "interaction.ext.fastapi"
+MAIN_PACKAGE_NAME = "interactions.ext.fastapi"
 URL = "https://github.com/Damego/interactions-fastapi"
 
 with open("README.md", "r", encoding="utf-8") as f:

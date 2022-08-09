@@ -20,7 +20,7 @@ base = Base(
     version=version,
     description="Build an API for your bot with FastAPI",
     link="https://github.com/Damego/interactions-fastapi",
-    packages=["interactions.ext.api"],
+    packages=["interactions.ext.fastapi"],
     requirements=[
         "discord-py-interactions",
         "fastapi",

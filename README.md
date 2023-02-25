@@ -1,31 +1,46 @@
 # FastAPI wrapper for interactions.py
 
-An Extension library to add Fast API for your interactions.py bot .
+An Extension library to add restful API for your interactions.py bot.
 
 ## Installation
 
-``pip install interactions-fastapi``
+``pip install interactions-restful``
 
+## Simple example
 
-## Examples
+### Main file
 
 ```python
 import interactions
-from interactions.ext.fastapi import setup
+from interactions_restful import APIExtension
 
-client = interactions.Client(...)
-api = setup(client)
+client = interactions.Client()
 
-@api.get("/")
-async def index():
-    return {"status": "success"}
+APIExtension(client, "127.0.0.1", 5000, "flask")
 
-client.start()
+client.load_extension("api")
+
+client.start("token")
 ```
 
-Server will run on ``127.0.0.1:32512`` (host and port modifiable)
+### Extension file
+- `api.py`
 
-More examples in ``examples`` folder.
+```python
+import interactions
+from interactions_restful import route
+
+
+class MyAPI(interactions.Extension):
+    @route("GET", "/")
+    def index(self):
+        return {"status": "success"}
+
+```
+
+## Modes
+
+Extension support both flask and fastapi as backend for building an api, but if you don't want to use them you could create own backend.
 
 ## Documentation
 

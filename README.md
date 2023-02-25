@@ -26,3 +26,7 @@ client.start()
 Server will run on ``127.0.0.1:32512`` (host and port modifiable)
 
 More examples in ``examples`` folder.
+
+## Documentation
+
+[FastAPI documentation](https://fastapi.tiangolo.com/)

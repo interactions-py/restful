@@ -5,3 +5,36 @@ line-length = 100
 [tool.isort]
 profile = "black"
 line_length = 100
+
+[tool.poetry]
+name = "interactions-restful"
+version = "1.0.0"
+description = "An extension library for interactions.py allowing runtime API structures"
+authors = ["Damego <damego.dev@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+[tool.poetry.group.fastapi]
+optional = true
+
+[tool.poetry.group.fastapi.dependencies]
+fastapi = "^0.92.0"
+uvicorn = "^0.20.0"
+
+[tool.poetry.group.flask]
+optional = true
+
+[tool.poetry.group.flask.dependencies]
+flask = "^2.2.3"
+asgiref = "^3.6.0"
+hypercorn = "^0.14.3"
+
+[build-system]
+requires = [
+    "setuptools",
+    "tomli",
+]
+build-backend = "setuptools.build_meta"

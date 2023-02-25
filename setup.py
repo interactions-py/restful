@@ -1,35 +1,26 @@
 from codecs import open
+from pathlib import Path
 
-from setuptools import setup
+import tomli
+from setuptools import find_packages, setup
 
-# Package information
-AUTHOR = "Damego"
-AUTHOR_EMAIL = "damego.dev@gmail.com"
-DESCRIPTION = "Build an API for your bot with FastAPI"
-PROJECT_NAME = "interactions-fastapi"
-MAIN_PACKAGE_NAME = "interactions.ext.fastapi"
-URL = "https://github.com/interactions-py/interactions-fastapi"
-
-with open("README.md", "r", encoding="utf-8") as f:
-    README = f.read()
-
-with open("requirements.txt", "r", encoding="utf-8") as f:
-    requirements = f.read()
+with open("pyproject.toml", "rb") as f:
+    pyproject = tomli.load(f)
 
 
 setup(
-    name=PROJECT_NAME,
-    version="0.0.1",
-    author=AUTHOR,
-    author_email=AUTHOR_EMAIL,
-    description=DESCRIPTION,
+    name=pyproject["tool"]["poetry"]["name"],
+    version=pyproject["tool"]["poetry"]["version"],
+    author="Damego",
+    author_email="damego.dev@gmail.com",
+    description=pyproject["tool"]["poetry"]["description"],
     include_package_data=True,
-    install_requires=requirements,
-    license="GPL-3.0 License",
-    long_description=README,
+    install_requires=(Path(__file__).parent / "requirements.txt").read_text().splitlines(),
+    license=pyproject["tool"]["poetry"]["license"],
+    long_description=(Path(__file__).parent / "README.md").read_text(),
     long_description_content_type="text/markdown",
-    url=URL,
-    packages=[MAIN_PACKAGE_NAME],
+    url="https://github.com/interactions-py/restful",
+    packages=find_packages(),
     python_requires=">=3.8",
     classifiers=[
         "Intended Audience :: Developers",
@@ -37,9 +28,8 @@ setup(
         "Natural Language :: English",
         "Operating System :: OS Independent",
         "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.8",
-        "Programming Language :: Python :: 3.9",
         "Programming Language :: Python :: 3.10",
+        "Programming Language :: Python :: 3.11",
         "Topic :: Internet",
         "Topic :: Software Development :: Libraries :: Python Modules",
         "Topic :: Software Development :: Libraries",

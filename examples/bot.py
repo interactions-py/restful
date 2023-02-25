@@ -1,9 +1,8 @@
 from os import getenv
 
+import interactions
 from dotenv import load_dotenv
 from fastapi import WebSocket, WebSocketDisconnect
-
-import interactions
 from interactions.ext.fastapi import setup
 
 load_dotenv()

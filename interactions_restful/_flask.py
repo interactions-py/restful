@@ -7,6 +7,9 @@ from flask import Flask
 
 from .abc import BaseApi
 
+__all__ = ("FlaskAPI")
+
+
 class FlaskAPI(BaseApi):
     def __init__(self, host: str, port: int, **kwargs):
         self.host = host

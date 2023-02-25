@@ -4,11 +4,8 @@ from typing import overload, Literal
 
 from interactions.models.internal import Extension
 from interactions import Client
-import fastapi
 
 from .abc import BaseApi
-from ._flask import FlaskAPI
-from ._fastapi import FastAPI
 
 __all__ = ("APIExtension", )
 
@@ -46,8 +43,10 @@ class APIExtension(Extension):
         self.client: BaseApi = None
         match mode:
             case "flask":
+                from ._flask import FlaskAPI
                 self.client = FlaskAPI(host, port, **kwargs)
             case "fastapi":
+                from ._fastapi import FastAPI
                 self.client = FastAPI(host, port, **kwargs)
 
         self.bot.async_startup_tasks.append(self.run())

@@ -5,6 +5,9 @@ from uvicorn import Config, Server
 
 from .abc import BaseApi
 
+__all__ = ("FastAPI", )
+
+
 class FastAPI(BaseApi):
     def __init__(self, host: str, port: int, **kwargs):
         self.host = host

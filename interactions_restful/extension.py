@@ -49,8 +49,8 @@ class APIExtension(Extension):
                 from ._fastapi import FastAPI
                 self.client = FastAPI(host, port, **kwargs)
 
-        self.bot.async_startup_tasks.append(self.run())
-        
+        self.bot.async_startup_tasks.append((self.run, (), {}))
+
     async def run(self):
         for extension in self.bot.ext.values():
             for _, coro in getmembers(extension, predicate=iscoroutinefunction):

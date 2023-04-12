@@ -16,6 +16,7 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.10"
+discord-py-interactions = "^5.0.0"
 
 [tool.poetry.group.fastapi]
 optional = true

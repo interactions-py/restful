@@ -30,8 +30,6 @@ optional = true
 
 [tool.poetry.group.flask.dependencies]
 flask = "^2.2.3"
-asgiref = "^3.6.0"
-hypercorn = "^0.14.3"
 
 [build-system]
 requires = [

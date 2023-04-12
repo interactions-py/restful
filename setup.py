@@ -19,7 +19,7 @@ setup(
     author_email="damego.dev@gmail.com",
     description=pyproject["tool"]["poetry"]["description"],
     include_package_data=True,
-    install_requires=(Path(__file__).parent / "requirements.txt").read_text().splitlines(),
+    install_requires=["discord-py-interactions>=5.0.0,<6.0.0"],
     extras_require=extras_require,
     license=pyproject["tool"]["poetry"]["license"],
     long_description=(Path(__file__).parent / "README.md").read_text(),

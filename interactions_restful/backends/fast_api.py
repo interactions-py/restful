@@ -3,7 +3,7 @@ from typing import Callable, Coroutine
 from fastapi import FastAPI as _FastAPI
 from uvicorn import Config, Server
 
-from .abc import BaseApi
+from ..abc import BaseApi
 
 __all__ = ("FastAPI", )
 

@@ -1,13 +1,16 @@
 from typing import Callable, Coroutine
 
-from asgiref.wsgi import WsgiToAsgi
-from hypercorn.config import Config
-from hypercorn.asyncio import serve
-from flask import Flask
+try:
+    from asgiref.wsgi import WsgiToAsgi
+    from hypercorn.config import Config
+    from hypercorn.asyncio import serve
+    from flask import Flask
+except ImportError as e:
+    raise ImportError("Flask dependencies weren't installed. Please, install they with [flask] option") from e
 
-from .abc import BaseApi
+from ..abc import BaseApi
 
-__all__ = ("FlaskAPI")
+__all__ = ("FlaskAPI", )
 
 
 class FlaskAPI(BaseApi):

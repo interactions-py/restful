@@ -7,7 +7,7 @@ from interactions import Client
 
 from .abc import BaseApi
 
-__all__ = ("APIExtension", )
+__all__ = ("APIClient", "setup")
 API_TYPE = TypeVar("API_TYPE", bound=BaseApi)
 
 
@@ -40,3 +40,5 @@ class APIClient:
                 self.client.add_route(coro, data["endpoint"], data["method"], **data["kwargs"])
 
 
+def setup(client: Client, api: Type[API_TYPE], host: str, port: int, **kwargs) -> APIClient:
+    return APIClient(client, api, host, port, **kwargs)

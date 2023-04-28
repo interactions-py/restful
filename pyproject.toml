@@ -8,7 +8,7 @@ line_length = 100
 
 [tool.poetry]
 name = "interactions-restful"
-version = "1.0.0"
+version = "1.0.1"
 description = "A library for interactions.py allowing runtime API structures"
 authors = ["Damego <damego.dev@gmail.com>"]
 license = "MIT"

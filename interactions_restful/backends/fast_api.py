@@ -10,6 +10,7 @@ __all__ = ("FastAPI", )
 
 class FastApiRouter(BaseRouter):
     def __init__(self, **kwargs):
+        kwargs.pop("name")  # neccessary only for flask
         self.api_router = APIRouter(**kwargs)
 
     def add_endpoint_method(self, coro: Callable[..., Coroutine], endpoint: str, method: str, **kwargs):

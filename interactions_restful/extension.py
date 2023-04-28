@@ -5,7 +5,7 @@ from typing import Type, TypeVar
 
 from interactions import Client
 
-from .abc import BaseApi, BaseRouter
+from .abc import BaseApi
 
 __all__ = ("APIClient", "setup")
 API_TYPE = TypeVar("API_TYPE", bound=BaseApi)
@@ -34,15 +34,15 @@ class APIClient:
     def _register_extension_routes(self):
         for extension in self.bot.ext.values():
             has_methods = False
-            for _, coro in getmembers(extension, predicate=asyncio.iscoroutinefunction):
-                if not hasattr(coro, "__api__"):
+            for _, coro in getmembers(extension):
+                if getattr(coro, "__api__", None) is None:
                     continue
 
                 has_methods = True
 
                 if getattr(extension, "router", None) is None:
                     extension.router = self.client.create_router(name=extension.name)
-                data = coro.__api__
+                data: dict = coro.__api__
                 extension.router.add_endpoint_method(coro, data["endpoint"], data["method"], **data["kwargs"])
 
             if has_methods:

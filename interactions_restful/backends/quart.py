@@ -57,3 +57,8 @@ class QuartAPIHandler(BaseAPIHandler):
             self.app.view_functions.pop(endpoint, None)
 
             self._recursive_remove(endpoint, self.app.url_map._matcher._root)
+
+    def add_endpoint_method(
+        self, coro: Callable[..., Coroutine], endpoint: str, method: str, **kwargs
+    ):
+        self.app.route(endpoint, methods=[method], **kwargs)(coro)

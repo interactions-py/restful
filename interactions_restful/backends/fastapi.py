@@ -41,3 +41,8 @@ class FastAPIHandler(BaseAPIHandler):
         for i, r in enumerate(self.app.router.routes):
             if r.path in paths_to_check:  # type: ignore
                 del self.app.router.routes[i]
+
+    def add_endpoint_method(
+        self, coro: Callable[..., Coroutine], endpoint: str, method: str, **kwargs
+    ):
+        self.app.add_api_route(endpoint, coro, methods=[method], **kwargs)

@@ -54,12 +54,25 @@ class BaseAPIHandler:
     def remove_router(self, router: BaseRouterWrapper):
         ...
 
+    def add_endpoint_method(
+        self, coro: Callable[..., Coroutine], endpoint: str, method: str, **kwargs
+    ):
+        ...
+
     async def startup(self):
         commands = inspect.getmembers(
             self.__original_module, lambda x: isinstance(x, CallbackObject)
         )
         for command in commands:
             self.bot.add_command(command[1])
+
+        route_callables = inspect.getmembers(
+            self.__original_module, predicate=lambda x: getattr(x, "__api__", False)
+        )
+        for callable in route_callables:
+            callback = callable[1]
+            data: dict = callback.__api__
+            self.add_endpoint_method(callback, data["endpoint"], data["method"], **data["kwargs"])
 
         self.task = asyncio.create_task(self.bot.astart())
 

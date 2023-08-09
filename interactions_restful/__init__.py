@@ -1,2 +1,1 @@
-from .decorators import *
-from .extension import *
+from .decorators import *  # noqa

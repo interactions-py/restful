@@ -1,10 +1,10 @@
 import interactions
-from interactions_restful import setup
-from interactions_restful.backends.fast_api import FastAPI
 
+from interactions_restful import setup
+from interactions_restful.backends.fastapi import FastAPIHandler
 
 client = interactions.Client()
-setup(client, FastAPI, "localhost", 8000)
+setup(client, FastAPIHandler, "localhost", 8000)
 client.load_extension("exts.my_ext")
 
 

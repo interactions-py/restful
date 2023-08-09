@@ -34,7 +34,6 @@ class APIManager:
                 callback, data["endpoint"], data["method"], **data["kwargs"]
             )
 
-        # print(self.backend)
         self.backend.add_router(event.extension.router)
 
     @listen(ExtensionUnload)

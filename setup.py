@@ -8,8 +8,11 @@ with open("pyproject.toml", "rb") as f:
     pyproject = tomli.load(f)
 
 extras_require = {
-    "flask": ["flask>=2.0.0,<=3.0.0"],
-    "fastapi": ["fastapi>=0.92.0", "uvicorn>=0.20.0"]
+    "quart": ["quart>=0.15.0"],
+    "fastapi": ["fastapi>=0.92.0"],
+    "uvicorn": ["uvicorn>=0.15.0"],
+    "hypercorn": ["hypercorn>=0.14.0"],
+    "daphne": ["daphne>=4.0.0"],
 }
 
 setup(
@@ -39,5 +42,5 @@ setup(
         "Topic :: Software Development :: Libraries :: Python Modules",
         "Topic :: Software Development :: Libraries",
         "Topic :: Utilities",
-    ]
+    ],
 )

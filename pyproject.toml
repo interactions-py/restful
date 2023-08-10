@@ -8,7 +8,7 @@ line_length = 100
 
 [tool.poetry]
 name = "interactions-restful"
-version = "1.0.2"
+version = "2.0.0"
 description = "A library for interactions.py allowing runtime API structures"
 authors = ["Damego <damego.dev@gmail.com>"]
 license = "MIT"
@@ -20,16 +20,23 @@ discord-py-interactions = "^5.0.0"
 
 [tool.poetry.group.fastapi]
 optional = true
+dependencies = {"fastapi" = "^0.92.0"}
 
-[tool.poetry.group.fastapi.dependencies]
-fastapi = "^0.92.0"
-uvicorn = "^0.20.0"
-
-[tool.poetry.group.flask]
+[tool.poetry.group.quart]
 optional = true
+dependencies = {"quart" = "^0.15.0"}
 
-[tool.poetry.group.flask.dependencies]
-flask = "^2.2.3"
+[tool.poetry.group.uvicorn]
+optional = true
+dependencies = {"uvicorn" = "^0.15.0"}
+
+[tool.poetry.group.hypercorn]
+optional = true
+dependencies = {"hypercorn" = "^0.14.0"}
+
+[tool.poetry.group.daphne]
+optional = true
+dependencies = {"daphne" = "^4.0.0"}
 
 [build-system]
 requires = [
